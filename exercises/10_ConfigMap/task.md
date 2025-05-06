@@ -1,6 +1,6 @@
 # Exercise 10: ConfigMap
 
-Onto our last exercise! As was said before, we are lastly going to configure our App with the REDIS_URL Variable to connect to our Redis instance.
+As was said before, we are lastly going to configure our App with the REDIS_URL Variable to connect to our Redis instance.
 
 ## Task 
 

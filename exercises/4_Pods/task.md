@@ -12,6 +12,12 @@ After some time, your cluster will have been created and you can now access it u
 
 Try *kubectl get pods -A* to verify everything is working. You should see some kube-system Pods, which should include some Kubernetes Components which are now known to you.
 
+ONLY IF WE DIDN'T PUBLISH THE IMAGE EARLIER: To use our Image in the following task, do the following: 
+
+1. Execute "eval $(minikube docker-env)"
+2. Use the docker build command from Exercise 2 again. This time, docker will build the Image in our minikube-Cluster.
+
+
 ## The Task 
 
 Your next task is relatively simple! Create a pod.yaml-File which defines a container using our image. Then, *apply* that Pod-definition to your Kubernetes Cluster and see what happens: 
