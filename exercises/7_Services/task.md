@@ -8,3 +8,5 @@ Verify your solution by applying your yaml file to Kubernetes, then running *kub
 
 Additionally, you can do *kubectl describe svc <svc_name>* to get a detailed description of your newly created Service. You should look for the "Endpoints" section: Ideally, you should see 3 IP-addresses there.
 Now, do *kubectl get pods -o wide* to show your Pods including their IP-addresses. Verify they are the same as the Endpoints.
+
+You can also verify your solution by running *kubectl port-forward svc/<svc_name> <localhost_port:service_port>*

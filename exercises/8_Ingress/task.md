@@ -17,6 +17,6 @@ Open the hosts-File in C:\Windows\System32\drivers\etc  as administrator and add
 
 ## Task 
 
-The task itself is *rather* simple: Create an Ingress rule that allows us to open kubernetestraining.com in our browser and see our application!
+The task itself is *rather* simple: Create an Ingress Object that allows us to open kubernetestraining.com in our browser and see our application!
 
 Tip: You can get "Sceleton" yaml-Files in the Kubernetes Documentation.

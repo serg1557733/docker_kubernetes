@@ -9,3 +9,5 @@ Verify your solution by running:
 - *kubectl get deploy*
 - *kubectl get rs* 
 - *kubectl get pods*
+
+You can also access your deployment's Pods in your browser by running  *kubectl port-forward deploy/<deployment_name> <localhost_port:service_port>*

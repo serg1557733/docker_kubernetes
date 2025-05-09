@@ -1,6 +1,7 @@
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 import os
 import redis
+import time
 from urllib.parse import urlparse
 
 # Get Redis connection details from environment variables
@@ -43,6 +44,7 @@ try:
 except redis.ConnectionError:
     redis_connected = False
     print("Failed to connect to Redis", flush=True)
+
 
 class HelloWorldHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -181,5 +183,6 @@ server_address = ('0.0.0.0', 8080)
 httpd = HTTPServer(server_address, HelloWorldHandler)
 
 # Start the server
+time.sleep(10)
 print(f"Starting server on http://localhost:8080")
 httpd.serve_forever()
