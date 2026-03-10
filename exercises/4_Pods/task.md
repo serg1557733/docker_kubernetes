@@ -14,7 +14,7 @@ Try *kubectl get pods -A* to verify everything is working. You should see some k
 
 ONLY IF WE DIDN'T PUBLISH THE IMAGE EARLIER: To use our Image in the following task, do the following: 
 
-1. Execute "eval $(minikube docker-env)"
+1. Execute "eval $(minikube docker-env)" if you're on Linux or "minikube docker-env | Invoke-Expression" on Windows
 2. Use the docker build command from Exercise 2 again. This time, docker will build the Image in our minikube-Cluster.
 
 
