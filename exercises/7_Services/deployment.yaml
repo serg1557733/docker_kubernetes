@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbo
+  labels:
+    app.kubernetes.io/name: sbo-app
+    # egal
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: sbo-app
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: sbo-app
+    spec:
+      containers:
+        - name: sbo-egal
+          image: nginx
+          resources:
+            requests:
+              cpu: "1m"
+              memory: "2Mi"
+            limits:
+              cpu: "200m"
+              memory: "400Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sbo-service-auch-egal
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: sbo-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

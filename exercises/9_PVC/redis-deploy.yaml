@@ -15,17 +15,17 @@ spec:
         app: redis
     spec:
       containers:
-      - name: redis
-        image: redis:6.2
-        ports:
-        - containerPort: 6379
-        volumeMounts:
-        - name: ...
-          mountPath: ...
+        - name: redis
+          image: redis:6.2
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name: redis-storage
+              mountPath: /data/redis
       volumes:
-      - name: ...
-        persistentVolumeClaim:
-          claimName: ...
+        - name: redis-storage
+          persistentVolumeClaim:
+            claimName: redis-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -41,3 +41,14 @@ spec:
       port: 6379
       targetPort: 6379
   type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
