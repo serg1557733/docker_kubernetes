@@ -1,6 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  ...
-spec: 
-  ...
+  name: hello-server-deployment
+  labels:
+    app: hello-erver
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-server
+  template:
+    metadata:
+      labels:
+        app: hello-server
+    spec:
+      containers:
+        - name: hello-server
+          image: nginx:1.14.2
+          resources:
+            requests:
+              cpu: "1m"
+              memory: "2Mi"
+            limits:
+              cpu: "200m"
+              memory: "400Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-serv
+spec:
+  type: NodePort
+  selector:
+    app: hello-server
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
