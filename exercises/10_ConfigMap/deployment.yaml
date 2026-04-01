@@ -25,13 +25,6 @@ spec:
             limits:
               cpu: "200m"
               memory: "400Mi"
-          env:
-            - name: REDIS_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: redis-demo-config
-                  key: REDIS_URL
-
 ---
 apiVersion: v1
 kind: Service

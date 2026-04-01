@@ -2,7 +2,7 @@
 
 As was said before, we are lastly going to configure our App with the REDIS_URL Variable to connect to our Redis instance.
 
-## Task 
+## Task
 
 1. Create a ConfigMap containing the Environment variable! The Redis connection string should have the following form: "redis://<redis_service_name>:6379". Don't forget to apply it to our Cluster.
 2. Take our App Deployment file from the exercise 6 and change it up to include your newly created CM. Update your Deployment.
